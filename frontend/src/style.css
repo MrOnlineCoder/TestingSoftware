@@ -1,0 +1,149 @@
+:root {
+  font-family: Inter, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--p-text-color);
+  background: var(--p-surface-50);
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--p-surface-50);
+}
+
+a {
+  color: var(--p-primary-color);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+/* ---- tiny utility set ---- */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+
+.page-narrow {
+  max-width: 820px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.row-wrap {
+  flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.stack > * + * {
+  margin-top: 1rem;
+}
+
+.muted {
+  color: var(--p-text-muted-color);
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.error-text {
+  color: var(--p-red-600);
+  font-size: 0.875rem;
+}
+
+.markdown :first-child {
+  margin-top: 0;
+}
+
+.markdown :last-child {
+  margin-bottom: 0;
+}
+
+.markdown img {
+  max-width: 100%;
+}
+
+.markdown pre {
+  background: var(--p-surface-100);
+  padding: 0.75rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.markdown code {
+  background: var(--p-surface-100);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+.markdown pre code {
+  padding: 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--p-text-muted-color);
+}
+
+.empty-state .pi {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}

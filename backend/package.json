@@ -1,0 +1,56 @@
+{
+  "name": "testing-software-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend of the local automated testing software",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.scripts.json",
+    "lint": "eslint src/ scripts/",
+    "lint:fix": "eslint src/ scripts/ --fix",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "omr:selftest": "tsx scripts/omr-selftest.ts"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/cors": "^11.3.0",
+    "@fastify/multipart": "^10.1.2",
+    "@fastify/static": "^10.1.5",
+    "@fastify/swagger": "^9.9.1",
+    "@fastify/swagger-ui": "^6.1.1",
+    "@fastify/type-provider-typebox": "^5.2.0",
+    "@sinclair/typebox": "^0.34.52",
+    "@techstark/opencv-js": "^5.0.0-release.1",
+    "better-sqlite3": "^13.0.3",
+    "dotenv-safe": "^9.1.0",
+    "drizzle-orm": "^0.45.3",
+    "eta": "^4.6.0",
+    "fastify": "^5.12.5",
+    "jsqr": "^1.4.0",
+    "marked": "^18.1.0",
+    "pdf-lib": "^1.17.1",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/dotenv-safe": "^9.1.0",
+    "@types/node": "^26.6.4",
+    "@types/qrcode": "^1.5.6",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.1"
+  },
+  "type": "module"
+}

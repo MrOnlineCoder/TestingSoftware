@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title><%= it.title %> - questions</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11pt; color: #111; max-width: 180mm; margin: 0 auto; padding: 8mm 0; }
+    h1 { font-size: 17pt; margin: 0 0 4mm; }
+    .student { display: flex; gap: 10mm; margin-bottom: 4mm; }
+    .student span { flex: 1; border-bottom: 1px solid #444; padding-bottom: 1mm; }
+    .instructions { font-size: 9.5pt; color: #444; border: 1px solid #ccc; padding: 2.5mm 3.5mm; border-radius: 2mm; margin-bottom: 6mm; }
+    .question { break-inside: avoid; margin-bottom: 6mm; display: flex; gap: 3mm; }
+    .number { font-weight: 700; min-width: 8mm; }
+    .body { flex: 1; }
+    .prompt p { margin: 0 0 2mm; }
+    .prompt img { max-width: 100%; }
+    .meta { font-size: 8.5pt; color: #666; margin-bottom: 1.5mm; }
+    ol.options { list-style: none; padding: 0; margin: 0; }
+    ol.options li { margin: 1mm 0; }
+    .letter { display: inline-block; width: 6mm; font-weight: 700; }
+    .answer-box { border: 1px solid #555; border-radius: 1.5mm; margin-top: 2mm; }
+    .answer-box.number { height: 10mm; width: 60mm; }
+    .answer-box.text { height: 35mm; }
+    .print-btn { position: fixed; top: 6mm; right: 6mm; padding: 2mm 5mm; font-size: 11pt; cursor: pointer; }
+    @media print { .print-btn { display: none; } body { padding: 0; } }
+  </style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">Print</button>
+  <h1><%= it.title %></h1>
+  <div class="student"><span>Name:</span><span>Student ID:</span></div>
+  <div class="instructions">
+    Choice questions (marked "answer sheet"): fill the matching circle on the separate answer sheet completely with a black pen.
+    Other questions: write your answer in the box on this sheet.
+  </div>
+  <% it.questions.forEach(function (q) { %>
+  <div class="question">
+    <div class="number"><%= q.number %>.</div>
+    <div class="body">
+      <div class="meta"><%= q.kindLabel %> &middot; <%= q.score %> pt<%= q.score === 1 ? '' : 's' %></div>
+      <div class="prompt"><%~ q.promptHtml %></div>
+      <% if (q.options.length > 0) { %>
+      <ol class="options">
+        <% q.options.forEach(function (o) { %><li><span class="letter"><%= o.letter %></span><%= o.text %></li><% }) %>
+      </ol>
+      <% } else if (q.type === 'number') { %>
+      <div class="answer-box number"></div>
+      <% } else { %>
+      <div class="answer-box text"></div>
+      <% } %>
+    </div>
+  </div>
+  <% }) %>
+</body>
+</html>
